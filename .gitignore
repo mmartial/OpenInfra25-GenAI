@@ -7,3 +7,7 @@
 */compose.yaml
 **/myvenv
 **/.ipynb_checkpoints
+**/.cache
+**/ollama
+**/docs
+**/*.png

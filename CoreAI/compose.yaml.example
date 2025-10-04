@@ -1,0 +1,72 @@
+services:
+  oi25-coreai-cpo:
+    container_name: oi25-coreai-cpo
+    image: infotrend/coreai:25b01-cpo-12.6.3_2.6.0_4.11.0
+    restart: unless-stopped
+    command: /run_jupyter.sh
+    # We are NOT exposing any ports, we will access it through the tailscale IP:8888 (find the IP from your dashboard)
+    volumes:
+      - ./iti:/iti
+    environment:
+      # User ID and Group ID for the coreai user should be set to the values of the user running the command (obtain with `id -u` and `id -g`). We are using 1000:1000 here for illustration purposes.
+      - WANTED_UID=1000 # TODO: replace this to your user ID
+      - WANTED_GID=1000 # TODO: replace this to your group ID
+      - CoreAI_VERBOSE="yes"
+      - TZ="America/New_York"
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu
+                - compute
+                - utility
+    depends_on:
+      - tailscale-oi25-coreai
+    network_mode: service:tailscale-oi25-coreai
+
+
+  oi25-coreai-ollama:
+    image: ollama/ollama:latest
+    container_name: oi25-coreai-ollama
+    # We are NOT exposing any ports, we will access it through the tailscale IP:11434 (find the IP from your dashboard)
+    volumes:
+      - ./ollama:/root/.ollama
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    command: serve
+    restart: unless-stopped
+    environment:
+      - OLLAMA_KEEP_ALIVE=180
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities:
+                - gpu  
+    depends_on:
+      - tailscale-oi25-coreai
+    network_mode: service:tailscale-oi25-coreai
+
+# https://tailscale.com/kb/1282/docker
+  tailscale-oi25-coreai:
+    image: tailscale/tailscale:latest
+    container_name: tailscale-oi25-coreai
+    hostname: tailscale-oi25-coreai
+    environment:
+      - TS_AUTHKEY=tskey-auth- # TODO: Add your TS_AUTHKEY here
+      - TS_STATE_DIR=/var/lib/tailscale
+      - TS_USERSPACE=false
+    volumes:
+      - .ts:/var/lib/tailscale
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    cap_add:
+      - net_admin
+    restart: unless-stopped

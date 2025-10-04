@@ -1,0 +1,7 @@
+diffusers==0.32.2
+transformers==4.51.0
+accelerate
+protobuf
+sentencepiece
+python-dotenv
+huggingface_hub[hf_xet]

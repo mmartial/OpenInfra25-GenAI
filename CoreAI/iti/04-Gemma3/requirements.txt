@@ -1,0 +1,5 @@
+transformers
+accelerate
+transformers
+huggingface_hub[hf_xet]
+python-dotenv
