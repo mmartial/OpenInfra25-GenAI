@@ -36,8 +36,6 @@ services:
     # We are NOT exposing any ports, we will access it through the tailscale IP:11434 (find the IP from your dashboard)
     volumes:
       - ./ollama:/root/.ollama
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
     command: serve
     restart: unless-stopped
     environment:
