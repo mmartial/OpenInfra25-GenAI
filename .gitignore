@@ -1,0 +1,7 @@
+**/.env
+**/HF_HOME
+**/.ts
+**/basedir
+**/run
+**/userscripts_dir
+*/compose.yaml
