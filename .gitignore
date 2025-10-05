@@ -11,3 +11,4 @@
 **/ollama
 **/docs
 **/*.png
+!CoreAI/Tailscale-AuthKey.png
