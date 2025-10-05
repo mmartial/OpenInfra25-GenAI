@@ -57,6 +57,6 @@ If logged into your Tailscale dashboard, go to [https://login.tailscale.com/admi
 
 After editing the `compose.yaml` file, run `docker compose up -d` to start the containers.
 
-The containers will take a few minutes to start up.  
+The containers will take a few minutes to start up. The container will mount the local `iti` directory to the `/iti` directory in the container. This will allow us to access the Jupyter Notebooks developed for these demos.
 
 Once the containers are up and running, obtain the `100.` IP address from your Tailscale dashboard, and access the JupyterLab at `http://localhost:8888`. 
