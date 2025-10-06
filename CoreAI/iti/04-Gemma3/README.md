@@ -4,7 +4,7 @@ Original code: https://github.com/Infotrend-Inc/CoreAI-DemoProjects/tree/main/Ge
 
 ## About
 
-We will run Google’s Gemma 3 open models locally (instruction-tuned checkpoint: `gemma-3-4b-it`) to show Large Language Model (LLM) and Video Language Model (VLM) capabilities. 
+We will run Google’s Gemma 3 open models locally (instruction-tuned checkpoint: `gemma-3-4b-it`) to show Large Language Model (LLM) and Vision Language Model (VLM) capabilities. 
 This notebook demonstrates running a model without using a service to provide the model.
 
 High-level steps:
