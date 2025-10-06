@@ -1,10 +1,12 @@
 services:
   oi25-comfyui-nvidia:
     image: mmartial/comfyui-nvidia-docker:latest
+#    image: comfy:local
     container_name: oi25-comfyui-nvidia
     volumes:
       - ./run:/comfy/mnt
       - ./basedir:/basedir
+#      - ./userscripts_dir:/userscripts_dir
     restart: unless-stopped
     # We are NOT exposing any ports, we will access it through the tailscale IP:8188 (find the IP from your dashboard)
     environment:
@@ -13,6 +15,7 @@ services:
       - WANTED_GID=1000 # TODO: replace this to your group ID
       - BASE_DIRECTORY=/basedir
       - SECURITY_LEVEL=normal
+#      - SECURITY_LEVEL=weak
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
     deploy:
