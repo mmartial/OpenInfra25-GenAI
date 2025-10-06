@@ -2,6 +2,7 @@ services:
   oi25-coreai-cpo:
     container_name: oi25-coreai-cpo
     image: infotrend/coreai:25b01-cpo-12.6.3_2.6.0_4.11.0
+#    image: coreai:local
     restart: unless-stopped
     command: /run_jupyter.sh
     # We are NOT exposing any ports, we will access it through the tailscale IP:8888 (find the IP from your dashboard)
