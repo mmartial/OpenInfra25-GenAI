@@ -64,44 +64,36 @@ Once the containers are up and running, obtain the `100.` IP address from your T
 ## Troubleshooting
 
 Check if you can run `nvidia-smi` from outside the container but not within the `oi25-coreai-cpo` container:
-
-Try to run within the container:
+- Try to run within the container:
 ```bash
 docker exec -it oi25-coreai-cpo /usr/bin/nvidia-smi
 ```
-
-If you see `Failed to initialize NVML: Insufficient Permissions`, find the group of the `/dev/nvidia0` device and add the user to that group:
+- If you see `Failed to initialize NVML: Insufficient Permissions`, find the group of the `/dev/nvidia0` device and add the user to that group:
 ```bash
 ls -l /dev/nvidia0
 ### crw-rw---- 1 root 1002 195, 0 Oct  6 02:25 /dev/nvidia0
 ### here 1002 is the group
 ```
-With this value, go into the `CoreAI-local` folder and we will build a local version of CoreAI using the same `FROM` as the version used in the `compose.yaml` file.
-
+- With this value, go into the `CoreAI-local` folder and we will build a local version of CoreAI using the same `FROM` as the version used in the `compose.yaml` file.
 ```bash
 cd CoreAI-local
 # adapt GPU_GROUP_ID to the value obtained above
 docker build --build-arg GPU_GROUP_ID=1002 -t coreai:local .
 ```
-
-Test:
+- Test:
 ```bash
 docker run --gpus all --rm -it coreai:local /usr/bin/nvidia-smi
 ```
-
-If it works, first `cd` into the folder where the `compose.yaml` is located, then take down the containers:
+- If it works, first `cd` into the folder where the `compose.yaml` is located, then take down the containers:
 ```bash
 docker compose down
 ```
-
-Edit the `compose,yaml` file to replace the `image` field of the `oi25-coreai-cpo` service with `coreai:local`.
-
-And then restart them with the new image:
+- Edit the `compose,yaml` file to replace the `image` field of the `oi25-coreai-cpo` service with `coreai:local`.
+- Then restart them with the new image:
 ```bash
 docker compose up -d
 ```
-
-After restarting the container, we can confirm that `nvidia-smi` works within the container:
+- After restarting the container, we can confirm that `nvidia-smi` works within the container:
 ```bash
 docker exec -it oi25-coreai-cpo /usr/bin/nvidia-smi
 ```
