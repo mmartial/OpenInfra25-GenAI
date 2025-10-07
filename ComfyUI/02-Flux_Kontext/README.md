@@ -20,10 +20,10 @@ Additional needed weights:
 
 For the following steps:
 - Grab amd drop the mentioned example file (ex: `fluxkontext-ex01.json`) onto the ComfyUI WebUI, this will load the workflow.
-- Make sure to use the last image generated as the input image.
-- Check the prompt (in the `Step 3 - Prompt` node) to see the prompt used.
+- Make sure to use the previous image generated as the input image (or bring your own image).
+- Each workflow and prompt (in the `Step 3 - Prompt` node) demonstrates a different use case.
 
-Examples:
+Workflows:
 - `fluxkontext-ex01.json` : text removal + re-color black and white source
 - `fluxkontext-ex02.json` : background addition + outfit change
 - `fluxkontext-ex03.json` : outfit change + add the OpenInfra logo (second image) on the outfit
