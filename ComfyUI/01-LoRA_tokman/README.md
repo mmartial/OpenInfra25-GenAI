@@ -69,6 +69,8 @@ The workflow is a basic workflow that will generate an image using the LoRA weig
 
 This workflow does not require any special nodes, but will require a set of weights to be placed in various `basedir/models` folders.
 
+In ComfyUI, everything revolves around nodes — modular building blocks that each perform a specific task in the AI image generation pipeline. By connecting these nodes visually, a graph is formed, and the data flows from one to another, creating a flexible, customizable workflow. Nodes are linked in a pipeline: "Prompt ➝ Encode ➝ Model ➝ Noise ➝ Sampler ➝ Decode ➝ Output"
+
 The weights are:
 - From https://huggingface.co/black-forest-labs/FLUX.1-dev/tree/main
   - `flux1-dev.safetensors`, to be placed into `basedir/models/diffusion_models` (23GB)
