@@ -31,6 +31,42 @@ The final LoRA weight file (`flux_dev-tok.safetensors`) is about 200MB.
 
 Grab amd drop the `tokman_basicFlux_workflow-ex1.json` file into onto the ComfyUI WebUI, this will load the workflow.
 
+The workflow is a basic workflow that will generate an image using the LoRA weight file. Muliple components for image generation are present:
+| Component	| Role | Analogy |
+| --- | --- | --- |
+| 🧠 Model	| Core generator turning text into images	| 🎨 Painter |
+| 📖 CLIP	| Encodes text into concepts the model understands	| 🗣️ Translator |
+| 🧩 LoRA	| Adds new styles or knowledge to the base model	| 🧰 Custom brush |
+| 🔄 Sampler	| Algorithm that refines noise into the image	| 🔄 Painting technique |
+| 🌌 Latent	| Compressed internal image representation	| 📐 Blueprint |
+| 🖼️ VAE	| Converts latent image to actual pixels	| 🖨️ Printer |
+
+
+- 🧠 Model — the “brain” of image generation. 
+  The main neural network (e.g., stable-diffusion-v1-5, SDXL, FLUX, etc.) trained to turn text into images.
+  It learns the relationship between words and images and is responsible for generating the image structure, composition, and details.
+
+- 📖 CLIP — the “translator” of text to concepts. 
+  A text encoder that converts prompts into a vector representation the diffusion model understands.
+  It doesn’t generate the image but tells the model what concepts and styles to focus on.
+
+- 🧩 LoRA — the “add-on” for new styles or subjects. 
+  Short for Low-Rank Adaptation, a lightweight fine-tuning file that modifies a base model without retraining it.
+  Adds new styles, characters, objects, or aesthetics on top of an existing model.
+  Example: A LoRA trained on Van Gogh paintings makes any image adopt that style when activated.
+
+- 🔄 Sampler — the “rendering process”. 
+  The algorithm that iteratively refines random noise into a final image based on your prompt and model.
+  Different samplers change image speed, detail, smoothness, and style.
+
+- 🌌 Latent — the “hidden image space”. 
+  The compressed, abstract representation of the image inside the model’s hidden layers.
+  Stable Diffusion doesn’t generate pixels directly — it works in latent space (a smaller, efficient representation), then converts it into a visible image later.
+
+- 🖼️ VAE — the “decoder” that turns abstract data into pixels. 
+  The Variational Autoencoder — a neural network that encodes images into latent space and decodes them back into real pixel space.
+  At the end of the generation process, the VAE translates the latent image into a visible PNG/JPG.
+
 This workflow does not require any special nodes, but will require a set of weights to be placed in various `basedir/models` folders.
 
 The weights are:
@@ -45,3 +81,5 @@ The weights are:
 The workflow is a basic workflow that will generate an image using the LoRA weight file.
 
 You can alter the prompt or the resolution to generate different images, as shown in the `tokman_basicFlux_workflow-ex2.json` file.
+
+![tokman_ex01_02.jpg](./tokman_ex01_02.jpg)
