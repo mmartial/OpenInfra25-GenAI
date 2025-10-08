@@ -13,3 +13,4 @@
 **/*.png
 !CoreAI/Tailscale-AuthKey.png
 **/parsed
+**/*.mp4
