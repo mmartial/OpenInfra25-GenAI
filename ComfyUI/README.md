@@ -18,7 +18,7 @@ Those GenAI demos are adapted from existing workflows available as part of a Com
 
 It’s popular for its flexibility, support for custom nodes and extensions, and ability to fine-tune every step of the image generation process — making it ideal for artists, researchers, and developers who want more control over AI-driven image creation.
 
-In ComfyUI, everything revolves around nodes — modular building blocks that each perform a specific task in the AI image generation pipeline. By connecting these nodes visually, a graph is formed, and the data flows from one to another, creating a flexible, customizable workflow. Nodes are linked in a pipeline: "Prompt ➝ Encode ➝ Model ➝ Noise ➝ Sampler ➝ Decode ➝ Output".
+In ComfyUI, everything revolves around nodes — modular building blocks that each perform a specific task in the AI image generation pipeline. By connecting these nodes visually, a graph is formed, and the data flows from one node to another, creating a flexible, customizable workflow. Nodes are linked in a pipeline: "Prompt ➝ Encode ➝ Model ➝ Noise ➝ Sampler ➝ Decode ➝ Output".
 
 ### Stable Diffusion terminology
 
@@ -32,12 +32,12 @@ In ComfyUI, everything revolves around nodes — modular building blocks that ea
 | 🖼️ VAE | Converts latent image to actual pixels | 🖨️ Printer |
 
 - 🧠 Model — the “brain” of image generation.
-  The main neural network (e.g., stable-diffusion-v1-5, SDXL, FLUX, etc.) trained to turn text into images.
+  The main neural network (e.g., SD1.5, SDXL, FLUX, etc.) trained to turn text into images.
   It learns the relationship between words and images and is responsible for generating the image structure, composition, and details.
 
 - 📖 CLIP — the “translator” of text to concepts.
   A text encoder that converts prompts into a vector representation the diffusion model understands.
-  It doesn’t generate the image but tells the model what concepts and styles to focus on.
+  It doesn’t generate the image but tells the model which concepts and styles to focus on.
 
 - 🧩 LoRA — the “add-on” for new styles or subjects.
   Short for Low-Rank Adaptation, a lightweight fine-tuning file that modifies a base model without retraining it.
@@ -62,7 +62,7 @@ GitHub: [https://github.com/mmartial/comfyui-nvidia-docker](https://github.com/m
 
 Docker container setup for running ComfyUI using NVIDIA GPUs, bundling the necessary CUDA, drivers, and dependencies in a containerized environment.
 The container supports configurable UID/GID mapping (i.e. dropping privileges to a user inside the container that matches our host user) so that file permissions for shared volumes behave cleanly.
-It also integrates ComfyUI-Manager for easier updates and node management, and provides flexibility like running user scripts, customizing launch arguments, isolating user data (via separate “run” and “basedir” folders), and controlling security levels.
+It also integrates ComfyUI-Manager for easier updates and node management, and providing flexibility through features such as user scripts, customizing launch arguments, isolating user data (via separate `run` and `basedir` folders), and controlling ComfyUI's security levels.
 
 ## Tailscale
 

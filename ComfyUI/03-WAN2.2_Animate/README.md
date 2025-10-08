@@ -1,16 +1,22 @@
 # WAN 2,2 Animate
 
-We will use WAN2.2 to animate a video. This worklow will require a GPU with 32GB of VRAM.
+We will use [WAN 2.2 Animate](https://huggingface.co/Wan-AI/Wan2.2-Animate-14B), a custom node (Kijai's [`ComfyUI-WanAnimatePreprocess`](https://github.com/kijai/ComfyUI-WanAnimatePreprocess)), and its embedded workflow.
 
-This requires a few "custon node" to be installed.
+Its "Preprocessing" group detects people in frames, estimates body/hand/face keypoints, extracts aligned face crops, and formats these results into the inputs WanAnimate expects. Wan 2.2 Animate will then turn a single character image plus a reference video into a high‑fidelity animated or replacement video.
 
-Changing the `SECURITY_LEVEL` to `weak` in the `compose.yaml` file will allow the custom node to be loaded.
-From the "Manager", use "Custom Node Manager" and search "wananimate" then "Install" the `ComfyUI-WanAnimatePreprocess` node (by Kijai). We will need to `Restart` ComfyUI to enable the node, and this will add a new workflow to the WebUI.
+This worklow will require a GPU with at least 32GB of VRAM (even when using `fp8` weights).
+
+Because this requires a few ComfyUI "custom nodes" to be installed. 
+Kijai's custom node (at the time of this writeup) was not in the auto-validated list.
+Because of this, we need to change the `SECURITY_LEVEL` to `weak` in the `compose.yaml` file. This will allow the custom node to be installed.
+
+From the "Manager", use "Custom Node Manager" and search "wananimate" then "Install" the `ComfyUI-WanAnimatePreprocess` node (by Kijai). We need to `Restart` ComfyUI to enable the node, and this will add a new workflow to the WebUI.
 
 Our slightly modified version of the new workflow is `Wan2.2Animate.json`; we have bypassed a node and changed the models path for convenience.
-To use it once added to our ComfyUI, we will need to use the "Manager" to download the missing nodes and restart.
+To use it, once dropped into our ComfyUI, use the "Manager" to download the missing nodes before a `Restart`.
 
 Needed weights (create folder if needed):
+
 - For the "Preprocessing" group:
   - [yolov10m.onnx](https://huggingface.co/Wan-AI/Wan2.2-Animate-14B/resolve/main/process_checkpoint/det/yolov10m.onnx) to be placed in `basedir/models/detection` (59MB)
   - [vitpose-l-wholebody.onnx](https://huggingface.co/JunkyByte/easy_ViTPose/resolve/main/onnx/wholebody/vitpose-l-wholebody.onnx) to be placed in `basedir/models/detection` (1.2GB)
@@ -26,5 +32,5 @@ Needed weights (create folder if needed):
 ## Usage
 
 - Drop a short landscape video in the "Preprocessing" group's "Load Video (upload)" node.
-- Drop a landscape image as the source in the "Reference Image" group's "Load Iamge" node.
+- Drop a landscape image as the source in the "Reference Image" group's "Load Image" node.
 - Adapt the "CLIP Text Encode (Prompt)" in the node to the right of the "Models" group.

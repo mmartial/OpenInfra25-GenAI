@@ -1,6 +1,6 @@
 # Low Rank Adaptation (LoRA) - "Tokman"
 
-The content below is refering to the [FLUX.1 LoRA training](https://www.gkr.one/blg-20240818-flux-lora-training) post which uses the [ai-toolkit](https://github.com/ostris/ai-toolkit) repository.
+The content below is referring to the [FLUX.1 LoRA training](https://www.gkr.one/blg-20240818-flux-lora-training) post which uses the [ai-toolkit](https://github.com/ostris/ai-toolkit) repository.
 
 The post outlines how to train a LoRA (Low-Rank Adaptation) module for the [FLUX.1-Dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) and [FLUX.1-Schnell](https://huggingface.co/black-forest-labs/FLUX.1-schnell) image generation models (those steps require a GPU with at least 24GB of VRAM) and using ComfyUI for inference.
 
@@ -19,7 +19,7 @@ The post outlines how to train a LoRA (Low-Rank Adaptation) module for the [FLUX
 
 ## Training notes
 
-When training a LoRA, we usually pick a unique token (like `tok`, `zzzperson`, `myStyle123`, ...) that doesn’t exist in the model’s vocabulary.
+When training a LoRA, we typically select a unique token (like `tok`, `zzzperson`, `myStyle123`, ...) that doesn’t exist in the model’s vocabulary.
 This token is injected into the text prompts during training and becomes associated with the subject/style in the dataset.
 
 Training the LoRA was done on 4,000 steps.
@@ -29,9 +29,9 @@ The final LoRA weight file (`flux_dev-tok.safetensors`) is about 200MB.
 ## Usage
 
 Once we have generated our LoRA, we can use the basic worflow present in this folder (`tokman_basicFlux_workflow-ex1.json`).
-Grab amd drop the file into the ComfyUI WebUI, this will load the workflow.
+Grab and drop the file into the ComfyUI WebUI, this will load the workflow.
 
-The workflow is a basic image workdlow to generate an image using the Flux.1-Dev model and using a LoRA weight file (here our custom trained model).
+The workflow is a basic image generation one using the Flux.1-Dev model with a LoRA (here our custom trained model).
 
 This workflow does not require the installation of new custom nodes.
 It will require a set of weights to be placed in various `basedir/models` folders.
@@ -46,6 +46,6 @@ The weights are:
   - `clip_l.safetensors`, to be placed into `basedir/models/clip` (200MB)
 - The generated LoRA weight file (`flux_dev-tok.safetensors`) to be placed into `basedir/models/lora` (200MB)
 
-The workflows present in those folder are the same basic one, we altered the prompt or the resolution to generate different images.
+The workflows present in those folders are the same basic ones; we altered the prompt or the resolution to generate different images.
 
 ![tokman_ex01_02.jpg](./tokman_ex01_02.jpg
