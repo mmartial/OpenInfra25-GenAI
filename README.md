@@ -1,6 +1,6 @@
 # OpenInfra25-GenAI
 
-This repository contains the configuration files for the OpenInfra 2525 Europe "Open-Source GenAI on OpenStack"presentation by Julian Pistorius, Mike Lowe and Martial Michel.
+This repository contains the configuration files for the OpenInfra 2525 Europe "Open-Source GenAI on OpenStack" presentation by Julian Pistorius, Mike Lowe and Martial Michel.
 
 The `CoreAI` folder contains examples of Jupyter Notebooks to perform inference using local Large Language Model (LLM) as well as Stable Diffusion.
 
