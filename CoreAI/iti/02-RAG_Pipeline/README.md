@@ -6,9 +6,9 @@ Original code: [https://github.com/Infotrend-Inc/CoreAI-DemoProjects/tree/main/R
 
 The `RAG_Pipeline` notebook is a self-contained demo that builds a **Retrieval-Augmented Generation (RAG)** workflow:
 
-- it ingests a small document set, 
-- chunks and embeds the text, 
-- indexes it in a vector store, 
+- it ingests a small document set,
+- chunks and embeds the text,
+- indexes it in a vector store,
 - and then answers user questions by retrieving the most relevant chunks and passing them, along with a carefully structured prompt, to an LLM to generate grounded answers with citations.
 
 This notebook version was modified to use Ollama instead of [LiteLLM](https://www.litellm.ai/) to run with local models.
