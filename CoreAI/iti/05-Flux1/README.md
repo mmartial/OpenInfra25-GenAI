@@ -10,5 +10,5 @@ High-level steps:
 
 1. Install and import the required libraries (e.g., diffusers, torch, transformers, etc.).
 2. Configure the runtime device (GPU) for acceleration.
-3. Load the Flux1 Schnell model with recommended precision (`torch_dtype=torch.float16`)
+3. Load the Flux1 Schnell model with recommended precision (`torch_dtype=torch.bfloat16`)
 4. Run inference with specifed prompts and seeds to generate images
