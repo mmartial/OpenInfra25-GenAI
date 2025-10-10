@@ -4,6 +4,37 @@ Configuration, workshop material, and demo assets for the OpenInfra 2025 Europe 
 
 The demos were built and tested on Indiana University’s Jetstream OpenStack cloud using GPU-backed instances.
 
+## JetStream 2
+
+Jetstream2 is a cloud computing infrastructure designed to support researchers and educators with on-demand, interactive computing resources, especially for those who may not be expert in supercomputing.
+
+Though it supports research-scale computing, it is not exactly a classic HPC or HTC (High Throughput Computing) cluster. Rather, it is a cloud environment with virtual machines, storage, and software stacks.  
+
+It is built on OpenStack for its underlying orchestration, exposing the OpenStack APIs (Horizon, CLI, SDK) while also offering a more user-friendly interface (Exosphere).
+
+Jetstream2 comprises five computational systems, with the primary system located at Indiana University, and four regional sites (Arizona State University, Cornell, University of Hawaiʻi, Texas Advanced Computing Center).
+
+### Cloud Resources & Capabilities:
+
+| Resource / Capability | Description / Details |
+| --- | --- |
+| Distributed infrastructure | Jetstream2 is spread across five U.S. sites, enabling geographical load balancing and resilience. |
+| Compute (VMs / instances) | Virtual machines with different flavors: standard, large memory, GPU-enabled types. |
+| GPU / AI support | The system includes GPU nodes to support AI/ML workflows and inference. |
+| Storage | Large-scale storage infrastructure (block, object, volume) to support data persistence, snapshots, etc. |
+| Networking | Inter-site networking to allow data movement and collaboration across the distributed cloud. |
+| User access & interfaces | Multiple access modes: web UI, CLI, OpenStack APIs, and simplified interfaces for non-expert users. |
+| Resource management / quotas | Users are allocated quotas, must request/projects via an allocation system (credits) to gain access to resources. |
+| Interactive workloads support | Emphasis on interactive use: Jupyter notebooks, RStudio, web apps, not only batch jobs. |
+| Scalability & resilience concerns | Scale, manage failures, and handle growth while maintaining usability. |
+
+### Links
+
+- Jetstream2 official site: [https://jetstream-cloud.org/](https://jetstream-cloud.org/)
+- System Overview & Architecture: Jetstream2 Documentation: System Overview [https://docs.jetstream-cloud.org/overview/overview-doc/](https://docs.jetstream-cloud.org/overview/overview-doc/)
+- Get Started page: [https://jetstream-cloud.org/get-started/](https://jetstream-cloud.org/get-started/)
+- Jetstream2: Democratizing Cloud Computing for U.S. Research: [https://www.socallinuxexpo.org/scale/22x/presentations/sponsor-talk-jetstream2-democratizing-cloud-computing-us-research/](https://www.socallinuxexpo.org/scale/22x/presentations/sponsor-talk-jetstream2-democratizing-cloud-computing-us-research/)
+
 ## Repository Layout
 
 - `CoreAI/` – Jupyter-based inference workflows powered by Infotrend’s CoreAI containers (LLM chat via Ollama plus Stable Diffusion notebooks).
