@@ -4,7 +4,7 @@ Original code: [https://github.com/Infotrend-Inc/CoreAI-DemoProjects/tree/main/G
 
 ## About
 
-This notebook uses Google’s Gemma 3 open models locally (using its instruction-tuned checkpoint: `gemma-3-4b-it`) to show Large Language Model (LLM) and Vision Language Model (VLM) capabilities. without using a service such as Ollama to `serve` the model.
+This notebook uses Google’s Gemma 3 open models locally (using its instruction-tuned checkpoint: [`gemma-3-4b-it`](https://huggingface.co/google/gemma-3-4b-it)) to show Large Language Model (LLM) and Vision Language Model (VLM) capabilities. without using a service such as Ollama to `serve` the model.
 
 High-level steps:
 
