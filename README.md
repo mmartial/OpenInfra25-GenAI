@@ -2,9 +2,9 @@
 
 Configuration, workshop material, and demo assets for the OpenInfra 2025 Europe talk **“Open-Source GenAI on OpenStack”** by Julian Pistorius, Mike Lowe, and Martial Michel.
 
-The demos were built and tested on Indiana University’s Jetstream OpenStack cloud using GPU-backed instances.
+The demos were built and tested on Indiana University’s Jetstream2 OpenStack cloud using GPU-backed instances.
 
-## JetStream 2
+## Jetstream2
 
 Jetstream2 is a cloud computing infrastructure designed to support researchers and educators with on-demand, interactive computing resources, especially for those who may not be expert in supercomputing.
 
