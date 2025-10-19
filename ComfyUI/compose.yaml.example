@@ -16,6 +16,10 @@ services:
       - BASE_DIRECTORY=/basedir
       - SECURITY_LEVEL=normal
 #      - SECURITY_LEVEL=weak
+      # Torch 2.9.0 released right before live demo, using 2.8.0 until container is updated
+      - USE_PIPUPGRADE="false"
+      - PREINSTALL_TORCH="true"
+      - PREINSTALL_TORCH_CMD="pip3 install --trusted-host pypi.org --trusted-host files.pythonhosted.org torch==2.8.0 torchvision==0.23 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu126"
       - NVIDIA_VISIBLE_DEVICES=all
       - NVIDIA_DRIVER_CAPABILITIES=all
     deploy:
