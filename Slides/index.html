@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/league.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<style>
+			.reveal h1,
+			.reveal h2,
+			.reveal h3,
+			.reveal h4,
+			.reveal h5,
+			.reveal h6 {
+				text-transform: none;  /* removes automatic UPPERCASE */
+			}
+		</style>
+		<style>
+			table.no-border,
+			table.no-border td,
+			table.no-border th {
+				border: none;
+				border-collapse: collapse;
+				padding: 0.3em 0.6em;
+			}
+		</style>
+
+		<style>
+			.reveal code {
+			color: orange;       /* 🔴 your desired color */
+			background: none;     /* optional: remove background */
+			font-weight: normal;    /* optional */
+			}
+		</style>
+
+	<style>
+    .rainbow-text {
+      font-size: 2em;
+      font-weight: bold;
+      background: linear-gradient(
+        90deg,
+        #000091,
+        #FFFFFF,
+        #E1000F
+      );
+      background-size: 400%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: rainbow-animation 8s linear infinite;
+    }
+
+    @keyframes rainbow-animation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+	</style>
+
+</head>
+	<body>	
+		<div class="reveal">
+
+			<div class="slides">
+				<section 
+					data-markdown="title.md"
+					data-separator-horizontal="^\r?\n---\r?\n$"
+					data-separator-vertical="^\r?\n--\r?\n$"
+				></section>
+				<section 
+					data-markdown="jetstream2.md"
+					data-separator-horizontal="^\r?\n---\r?\n$"
+					data-separator-vertical="^\r?\n--\r?\n$"
+				></section>
+				<section 
+					data-markdown="coreai.md"
+					data-separator-horizontal="^\r?\n---\r?\n$"
+					data-separator-vertical="^\r?\n--\r?\n$"
+				></section>
+				<section 
+					data-markdown="comfyui.md"
+					data-separator-horizontal="^\r?\n---\r?\n$"
+					data-separator-vertical="^\r?\n--\r?\n$"
+				></section>
+				<section 
+					data-markdown="thankyou.md"
+					data-separator-horizontal="^\r?\n---\r?\n$"
+					data-separator-vertical="^\r?\n--\r?\n$"
+				></section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'c/t',
+				margin: 0.04,
+				controlsLayout: 'edges',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]	
+			});
+		</script>
+	</body>
+</html>
